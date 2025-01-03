@@ -1,0 +1,22 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "rules": {
+    "react/button-has-type": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "prettier/prettier": "error"
+  }
+}
