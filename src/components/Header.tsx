@@ -3,7 +3,7 @@ import { Input } from "./ui/input";
 
 export default function Header() {
   return (
-    <header className="text-white">
+    <header className="text-white border-b-2 mb2">
       <div className="flex justify-between items-center max-w-7xl px-5 mx-auto min-h-16 py-4">
         <Link href={"/"}>
           <h1 className="font-semibold text-2xl">Travel Advisor</h1>
