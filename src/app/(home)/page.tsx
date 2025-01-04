@@ -12,10 +12,10 @@ export default function Home() {
           <aside className="w-2/5 h-full bg-gray-500">
             <h1>Sidebar</h1>
           </aside>
-          <APIProvider apiKey={process.env.GOOGLE_MAPS_API_KEY!}>
+          <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
             <Map
               style={{ width: "100%", height: "100%" }}
-              mapId={process.env.GOOGLE_MAPS_MAP_ID!}
+              mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID!}
               defaultCenter={{ lat: 22.54992, lng: 0 }}
               defaultZoom={10}
               minZoom={4}
