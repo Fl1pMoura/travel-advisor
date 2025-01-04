@@ -4,6 +4,15 @@ import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
 import Image from "next/image";
 
 export default function Home() {
+  console.log(
+    "API Key:",
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "Variable not found",
+  );
+  console.log(
+    "Map ID:",
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID || "Variable not found",
+  );
+
   return (
     <>
       <Header />
