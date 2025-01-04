@@ -14,32 +14,27 @@ export default function MapComponent() {
     southWest: { lat: number; lng: number };
   } | null>(null);
 
-  const map = useMap(); // Obtém a referência do mapa
+  const map = useMap();
 
   const handleMapClick = (event: MapMouseEvent) => {
     if (event.detail.latLng) {
       const { lat, lng } = event.detail.latLng;
 
-      setMarkers([{ lat, lng }]); // Atualiza o marcador no local do clique
+      setMarkers([{ lat, lng }]);
 
-      // Calculando o bounding box ao redor do clique
       if (map) {
         const bounds = new google.maps.LatLngBounds();
 
-        // Adicionando o marcador ao bounds
         const latLng = new google.maps.LatLng(lat, lng);
         bounds.extend(latLng);
 
-        // Definindo uma margem (ajuste conforme necessário)
         const margin = 0.05; // A margem para expandir a área do bounding box
         bounds.extend(new google.maps.LatLng(lat + margin, lng + margin));
         bounds.extend(new google.maps.LatLng(lat - margin, lng - margin));
 
-        // Obtendo as coordenadas do bounding box
         const northEast = bounds.getNorthEast();
         const southWest = bounds.getSouthWest();
 
-        // Atualizando o estado do bounding box
         setBoundingBox({
           northEast: { lat: northEast.lat(), lng: northEast.lng() },
           southWest: { lat: southWest.lat(), lng: southWest.lng() },
@@ -53,14 +48,16 @@ export default function MapComponent() {
       style={{ width: "100%", height: "100%" }}
       mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID!}
       defaultCenter={{ lat: 22.54992, lng: 0 }}
-      defaultZoom={10}
+      defaultZoom={8}
       minZoom={4}
       disableDoubleClickZoom={true}
       gestureHandling={"greedy"}
+      draggingCursor={"pointer"}
+      draggableCursor={"pointer"}
+      clickableIcons={false}
       disableDefaultUI={true}
-      onClick={handleMapClick} // Adiciona o evento de clique
+      onClick={handleMapClick}
     >
-      {/* Exibe os marcadores criados */}
       {markers.map((marker, index) => (
         <AdvancedMarker
           key={index}
@@ -74,7 +71,6 @@ export default function MapComponent() {
         </AdvancedMarker>
       ))}
 
-      {/* Exibe o boundingBox no console ou na UI */}
       {boundingBox && (
         <div className="p-4">
           <h2 className="font-bold">Bounding Box:</h2>

@@ -5,6 +5,31 @@ import { APIProvider } from "@vis.gl/react-google-maps";
 import MapComponent from "./_components/MapComponent";
 
 export default function Home() {
+  const attractions = [
+    {
+      name: "Torre Eiffel",
+      description: "Icônica torre de ferro forjado no Champ de Mars, Paris.",
+      imageUrl: "https://rseat.pics/",
+    },
+    {
+      name: "Museu do Louvre",
+      description:
+        "O maior museu de arte do mundo e um monumento histórico em Paris.",
+      imageUrl: "https://rseat.pics/",
+    },
+    {
+      name: "Museu do Louvre",
+      description:
+        "O maior museu de arte do mundo e um monumento histórico em Paris.",
+      imageUrl: "https://rseat.pics/",
+    },
+    {
+      name: "Museu do Louvre",
+      description:
+        "O maior museu de arte do mundo e um monumento histórico em Paris.",
+      imageUrl: "https://rseat.pics/",
+    },
+  ];
   return (
     <>
       <Header />
@@ -13,20 +38,7 @@ export default function Home() {
           <aside className="w-1/4 h-full overflow-y-auto p-4 bg-gray-100">
             <h2 className="text-2xl font-bold mb-4">What&apos;s Nearby</h2>
             {/* Lista de atrações */}
-            {[
-              {
-                name: "Torre Eiffel",
-                description:
-                  "Icônica torre de ferro forjado no Champ de Mars, Paris.",
-                imageUrl: "https://rseat.pics/",
-              },
-              {
-                name: "Museu do Louvre",
-                description:
-                  "O maior museu de arte do mundo e um monumento histórico em Paris.",
-                imageUrl: "https://rseat.pics/",
-              },
-            ].map((attraction, index) => (
+            {attractions.map((attraction, index) => (
               <AttractionCard key={index} {...attraction} />
             ))}
           </aside>
