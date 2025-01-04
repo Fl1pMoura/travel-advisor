@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <section className="w-full flex h-[calc(100dvh-68px)]">
           <aside className="w-1/4 h-full overflow-y-auto p-4 bg-gray-100">
-            <h2 className="text-2xl font-bold mb-4">What's Nearby</h2>
+            <h2 className="text-2xl font-bold mb-4">What&apos;s Nearby</h2>
             {/* Lista de atrações */}
             {[
               {
