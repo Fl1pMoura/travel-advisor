@@ -16,5 +16,9 @@ jobs:
         uses: alex-page/github-project-automation-plus@v0.8.3
         with:
           project: "Travel Advisor Development"
-          column: "${{ github.event_name == 'pull_request' && github.event.action == 'opened' && 'In Progress' || github.event_name == 'pull_request_review' && github.event.review.state == 'approved' && 'Ready for Deploy' || github.event_name == 'pull_request' && github.event.action == 'closed' && 'Done' }}"
-          repo-token: ${{ secrets.PERSONAL_GITHUB_TOKEN  }}
+          column: ${{ 
+            github.event_name == 'pull_request' && github.event.action == 'opened' && 'In Progress' ||
+            github.event_name == 'pull_request_review' && github.event.review.state == 'approved' && 'Ready for Deploy' ||
+            github.event_name == 'pull_request' && github.event.action == 'closed' && 'Done'
+          }}
+          repo-token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
