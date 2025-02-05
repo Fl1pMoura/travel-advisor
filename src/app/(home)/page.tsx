@@ -24,7 +24,7 @@ export default function Home() {
       imageUrl: "https://rseat.pics/",
     },
     {
-      name: "Museu do Louvre",
+      name: "Museu do Louvre Teste",
       description:
         "O maior museu de arte do mundo e um monumento histórico em Paris.",
       imageUrl: "https://rseat.pics/",
