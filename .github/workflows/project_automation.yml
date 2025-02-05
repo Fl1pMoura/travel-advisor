@@ -1,0 +1,20 @@
+name: Project Board Automation
+
+on:
+  pull_request:
+    types: [opened, reopened, closed]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  project_automation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Move PR to correct column
+        uses: alex-page/github-project-automation-plus@v0.8.3
+        with:
+          project: "Travel Advisor Development"
+          column: "${{ github.event_name == 'pull_request' && github.event.action == 'opened' && 'In Progress' || github.event_name == 'pull_request_review' && github.event.review.state == 'approved' && 'Ready for Deploy' || github.event_name == 'pull_request' && github.event.action == 'closed' && 'Done' }}"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
